@@ -33,10 +33,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LightInject, Version=6.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.6.3.2\lib\net46\LightInject.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Linq.Expressions" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +80,12 @@
     <Compile Include="test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dashboard_UsrControl_Alert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dashboard_UsrControl_Alert.Designer.cs">
+      <DependentUpon>Dashboard_UsrControl_Alert.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dashboard_UsrControl_RibbonMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,6 +98,7 @@
     <Compile Include="UI\MdiMain_UsrControl_dashboard.Designer.cs">
       <DependentUpon>MdiMain_UsrControl_dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests\Stubs.cs" />
     <EmbeddedResource Include="MdiMain.resx">
       <DependentUpon>MdiMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,12 +115,17 @@
     <EmbeddedResource Include="test.resx">
       <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dashboard_UsrControl_Alert.resx">
+      <DependentUpon>Dashboard_UsrControl_Alert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dashboard_UsrControl_RibbonMenu.resx">
       <DependentUpon>Dashboard_UsrControl_RibbonMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MdiMain_UsrControl_dashboard.resx">
       <DependentUpon>MdiMain_UsrControl_dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Docs\ConvertPublicTypesToInternalInMergedAssemblies.pdf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,6 +143,12 @@
     <Content Include="Media\Icons\butterfly_icon-icons.com_60870.ico" />
     <None Include="Media\Icons\spring_butterfly_insect_bug_fly_garden_wings_icon_133308.ico" />
     <None Include="Resources\MdiMainIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{cc5eb99e-7231-4e7a-a20f-36c63eda9314}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

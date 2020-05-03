@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LightInject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,21 @@ namespace Titli
 {
     public partial class MdiMain : Form
     {
-    
-        public MdiMain()
+
+        private ServiceContainer services;
+        public MdiMain(ServiceContainer services)
         {
+            this.services = services;
             InitializeComponent();
             AdditionalDesignSettings();
         }
 
+
         private void AdditionalDesignSettings()
         {
+            
             this.Icon = Properties.Resources.MdiMainIcon;
-            this.Controls.Add(new Titli.UI.MdiMain_UsrControl_dashboard());
+            this.Controls.Add( new Titli.UI.MdiMain_UsrControl_dashboard(services));
         }
 
         private void button1_Click(object sender, EventArgs e)

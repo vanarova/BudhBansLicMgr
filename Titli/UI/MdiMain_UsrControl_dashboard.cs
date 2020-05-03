@@ -7,21 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LightInject;
 
 namespace Titli.UI
 {
     public partial class MdiMain_UsrControl_dashboard : UserControl
     {
-        public MdiMain_UsrControl_dashboard()
+        public MdiMain_UsrControl_dashboard(ServiceContainer services)
         {
+            this.services = services;
             InitializeComponent();
             AdditionalDesignSettings();
         }
         /// <summary>
         /// Child menu on ribbon.
         /// </summary>
-        private Dashboard_UsrControl_RibbonMenu RibbonMenu { get; set; }
-        private FlowLayoutPanel Frm_Table_FlowPanel_SidePanel { get; set; }
+        private Dashboard_UsrControl_RibbonMenu RibbonMenu;
+        private FlowLayoutPanel Frm_Table_FlowPanel_SidePanel;
+        private ServiceContainer services;
+        private Dashboard_UsrControl_Alert Dashboard_UsrControl_Alert;
         public FlowLayoutPanel SidePanel_FlowPanel_ControlBox { get; set; }
         public Button SidePanelContrlBox_Btn_Close { get; set; }
         public Button SidePanelContrlBox_Btn_Deattach { get; set; }
@@ -34,6 +38,8 @@ namespace Titli.UI
             Frm_Table_FlowPanel_SidePanel.BackColor = Color.Beige;
             Frm_Table_FlowPanel_SidePanel.Dock = DockStyle.Fill;
             Frm_Table_FlowPanel_SidePanel.FlowDirection = FlowDirection.TopDown;
+            Frm_Table_FlowPanel_SidePanel.AutoScroll = true;
+            Frm_Table_FlowPanel_SidePanel.MaximumSize = new Size(200, 0);
 
             SidePanel_FlowPanel_ControlBox = new FlowLayoutPanel();
             SidePanel_FlowPanel_ControlBox.Height = 22;
@@ -67,10 +73,16 @@ namespace Titli.UI
             //Below 2 events are raisen by child user controls
             RibbonMenu.AlertsTable_Btn_Close_Clicked += RibbonMenu_AlertsTable_Btn_Close_Clicked;
             RibbonMenu.AlertTable_Btn_SideWinOpen_Clicked += RibbonMenu_AlertTable_Btn_SideWinOpen_Clicked;
+
+            Dashboard_UsrControl_Alert = new Dashboard_UsrControl_Alert(services, Dashboard_UsrControl_Alert.Mode.SideWindow);
         }
 
         private void SidePanelContrlBox_Btn_Close_Click(object sender, EventArgs e)
         {
+            //Remove Alerts
+            Frm_Table_FlowPanel_SidePanel.Controls.Remove(Dashboard_UsrControl_Alert);
+            //Dashboard_UsrControl_Alert = null;
+
             frm_Table_Base.Controls.Remove(Frm_Table_FlowPanel_SidePanel);
             frm_Table_Base.Controls.Remove(frm_Panel_Content);
             //frm_Table_Base.Controls.Add(Frm_Table_FlowPanel_SidePanel, 2, 1);
@@ -94,7 +106,12 @@ namespace Titli.UI
             frm_Table_Base.Controls.Add(frm_Panel_Content,0,2);
             frm_Table_Base.SetColumnSpan(frm_Panel_Content, 1);
             frm_Table_Base.SetColumnSpan(Frm_Table_FlowPanel_SidePanel, 1);
-
+            if (Frm_Table_FlowPanel_SidePanel.Controls.Find("Dashboard_UsrControl_Alert",true).Count()==0)
+            {
+                //Dashboard_UsrControl_Alert = new Dashboard_UsrControl_Alert(services, Dashboard_UsrControl_Alert.Mode.SideWindow);
+                Frm_Table_FlowPanel_SidePanel.Controls.Add(Dashboard_UsrControl_Alert);
+            }
+           
         }
 
         private void RibbonMenu_AlertsTable_Btn_Close_Clicked(object sender, EventArgs e)
@@ -104,6 +121,8 @@ namespace Titli.UI
 
         private void AlertsTable_Btn_Close_Click()
         {
+          
+
             RibbonMenu.Dock = DockStyle.None;
             //RibbonMenu.Controls["frm_Table_Base"].Controls.Remove(this);
             frm_Table_Base.Controls.Remove(RibbonMenu);

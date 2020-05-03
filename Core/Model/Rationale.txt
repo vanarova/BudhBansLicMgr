@@ -1,0 +1,2 @@
+﻿Model layer will used to save the project into file system. This layer will be reinitialized
+and loaded into memory to load project data back.
