@@ -41,6 +41,8 @@ namespace Titli.UI
             Frm_Table_FlowPanel_SidePanel.AutoScroll = true;
             Frm_Table_FlowPanel_SidePanel.MaximumSize = new Size(200, 0);
 
+            tabPage_Home.Controls.Add(new MdiMain_UsrControl_Browser(services));
+
             SidePanel_FlowPanel_ControlBox = new FlowLayoutPanel();
             SidePanel_FlowPanel_ControlBox.Height = 22;
             SidePanel_FlowPanel_ControlBox.Width = Frm_Table_FlowPanel_SidePanel.Width;

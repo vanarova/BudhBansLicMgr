@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Core.Helper;
+using Core.ViewModel;
+using Gecko;
 using LightInject;
 
 namespace Titli
@@ -17,10 +19,12 @@ namespace Titli
         [STAThread]
         static void Main()
         {
-            
+            I_VM_Alert vm_Alert = new VM_Alert();
+            //register instances
             LightInjectHelper li = new LightInjectHelper();
+            li.RegisterInstance<I_VM_Alert>(vm_Alert);
             ServiceContainer service = li.service;
-
+            Xpcom.Initialize("Firefox");
             //Execute Test stub
             //UnitTests.Stubs.Run(service);
 

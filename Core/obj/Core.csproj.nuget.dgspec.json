@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sources\\Titli\\Titli\\Core\\Core.csproj": {}
+    "D:\\Sources\\Titli_repo\\Titli\\Core\\Core.csproj": {}
   },
   "projects": {
-    "D:\\Sources\\Titli\\Titli\\Core\\Core.csproj": {
+    "D:\\Sources\\Titli_repo\\Titli\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sources\\Titli\\Titli\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\Sources\\Titli_repo\\Titli\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\Sources\\Titli\\Titli\\Core\\Core.csproj",
+        "projectPath": "D:\\Sources\\Titli_repo\\Titli\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\105232\\.nuget\\packages\\",
-        "outputPath": "D:\\Sources\\Titli\\Titli\\Core\\obj\\",
+        "outputPath": "D:\\Sources\\Titli_repo\\Titli\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -44,6 +44,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.23, )"
+            },
             "LightInject": {
               "target": "Package",
               "version": "[6.3.2, )"

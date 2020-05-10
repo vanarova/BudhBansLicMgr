@@ -13,8 +13,15 @@ namespace Core.Helper
         public LightInjectHelper()
         {
             _service = new ServiceContainer();
-            _service.Register<I_VM_Alert, VM_Alert>();
+            //Rgister class/services 
             _service.Register<ILoggingServiceHelper, LoggingServiceHelper>(new LightInject.PerContainerLifetime());
         }
+
+        public void RegisterInstance<T>(T instance)
+        {
+            _service.RegisterInstance<T>(instance);
+
+        }
+
     }
 }
