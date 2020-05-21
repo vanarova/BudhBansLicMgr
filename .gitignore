@@ -1,8 +1,8 @@
 .vs
-Titli/obj
-Titli/bin
-packages
-Titli/Firefox
-POCs
-Core/obj
-Core/bin
+Titli/obj/*
+Titli/bin/*
+packages/*
+Titli/Firefox/*
+POCs/*
+Core/obj/*
+Core/bin/*
