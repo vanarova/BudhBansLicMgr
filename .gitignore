@@ -2,7 +2,7 @@
 Titli/obj/*
 Titli/bin/*
 packages/*
-Titli/Firefox/*
+Titli/Firefox/**
 POCs/*
 Core/obj/*
 Core/bin/*
