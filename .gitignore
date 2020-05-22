@@ -1,3 +1,6 @@
 .vs
-Titli/obj
-Titli/bin
+packages/**
+Titli/Firefox/**
+POCs/**
+obj/
+bin/

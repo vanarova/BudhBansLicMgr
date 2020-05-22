@@ -34,8 +34,12 @@
             this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ribbonMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.frm_Panel_Content = new System.Windows.Forms.Panel();
+            this.pnlContent_TabCntrl_BrowserTabs = new System.Windows.Forms.TabControl();
+            this.tabPage_Home = new System.Windows.Forms.TabPage();
             this.frm_Table_Base.SuspendLayout();
             this.frm_MenuStrip.SuspendLayout();
+            this.frm_Panel_Content.SuspendLayout();
+            this.pnlContent_TabCntrl_BrowserTabs.SuspendLayout();
             this.SuspendLayout();
             // 
             // frm_Table_Base
@@ -73,7 +77,7 @@
             // fileToolStripMenuItem1
             // 
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(46, 23);
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem1.Text = "File";
             // 
             // viewToolStripMenuItem1
@@ -81,7 +85,7 @@
             this.viewToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ribbonMenuToolStripMenuItem});
             this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(55, 23);
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(55, 24);
             this.viewToolStripMenuItem1.Text = "View";
             // 
             // ribbonMenuToolStripMenuItem
@@ -95,11 +99,32 @@
             // 
             this.frm_Panel_Content.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.frm_Table_Base.SetColumnSpan(this.frm_Panel_Content, 2);
+            this.frm_Panel_Content.Controls.Add(this.pnlContent_TabCntrl_BrowserTabs);
             this.frm_Panel_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.frm_Panel_Content.Location = new System.Drawing.Point(3, 31);
             this.frm_Panel_Content.Name = "frm_Panel_Content";
             this.frm_Panel_Content.Size = new System.Drawing.Size(1358, 692);
             this.frm_Panel_Content.TabIndex = 2;
+            // 
+            // pnlContent_TabCntrl_BrowserTabs
+            // 
+            this.pnlContent_TabCntrl_BrowserTabs.Controls.Add(this.tabPage_Home);
+            this.pnlContent_TabCntrl_BrowserTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent_TabCntrl_BrowserTabs.Location = new System.Drawing.Point(0, 0);
+            this.pnlContent_TabCntrl_BrowserTabs.Name = "pnlContent_TabCntrl_BrowserTabs";
+            this.pnlContent_TabCntrl_BrowserTabs.SelectedIndex = 0;
+            this.pnlContent_TabCntrl_BrowserTabs.Size = new System.Drawing.Size(1358, 692);
+            this.pnlContent_TabCntrl_BrowserTabs.TabIndex = 0;
+            // 
+            // tabPage_Home
+            // 
+            this.tabPage_Home.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_Home.Name = "tabPage_Home";
+            this.tabPage_Home.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Home.Size = new System.Drawing.Size(1350, 663);
+            this.tabPage_Home.TabIndex = 0;
+            this.tabPage_Home.Text = "Home";
+            this.tabPage_Home.UseVisualStyleBackColor = true;
             // 
             // MdiMain_UsrControl_dashboard
             // 
@@ -113,6 +138,8 @@
             this.frm_Table_Base.PerformLayout();
             this.frm_MenuStrip.ResumeLayout(false);
             this.frm_MenuStrip.PerformLayout();
+            this.frm_Panel_Content.ResumeLayout(false);
+            this.pnlContent_TabCntrl_BrowserTabs.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,5 +152,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ribbonMenuToolStripMenuItem;
+        private System.Windows.Forms.TabControl pnlContent_TabCntrl_BrowserTabs;
+        private System.Windows.Forms.TabPage tabPage_Home;
     }
 }
